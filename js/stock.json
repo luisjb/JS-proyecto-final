@@ -1,0 +1,32 @@
+[
+    {
+        "precio": 80,
+        "id": 1,
+        "title": "Elden Ring"
+    },
+    {
+        "precio": 60,
+        "id": 2,
+        "title": "Horizon"
+    },
+    {
+        "precio": 45,
+        "id": 3,
+        "title": "Dying Light 2"
+    },
+    {
+        "precio": 65,
+        "id": 4,
+        "title": "God of War: Ragnarok"
+    },
+    {
+        "precio": 60,
+        "id": 5,
+        "title": "Cyber Punk 2077"
+    },
+    {
+        "precio": 80,
+        "id": 6,
+        "title": "COD MW"
+    }
+]
