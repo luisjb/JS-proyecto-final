@@ -52,6 +52,13 @@ const addCarrito = e => {
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Agregado al carrito',
+        showConfirmButton: false,
+        timer: 1500
+    })
 }
 
 const setCarrito = item => {
@@ -90,6 +97,7 @@ const llenarCarrito = () => {
 
     llenarTotal()
     localStorage.setItem('carrito', JSON.stringify(carrito))
+    
 }
 
 const llenarTotal = () => {
@@ -97,7 +105,7 @@ const llenarTotal = () => {
     
     if (Object.keys(carrito).length === 0) {
         footer.innerHTML = `
-        <th scope="row" colspan="5">Carrito vacío con innerHTML</th>
+        <th scope="row" colspan="5">Carrito vacío</th>
         `
         return
     }
