@@ -126,6 +126,7 @@ const llenarTotal = () => {
         llenarCarrito()
     })
 
+    
     const botonCompra = document.querySelector('#comprar-carrito')
     botonCompra.addEventListener('click', () => {
         Swal.fire({
