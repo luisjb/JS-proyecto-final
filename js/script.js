@@ -32,7 +32,6 @@ items.addEventListener('click', e => { btnAumentarDisminuir(e) })
 const fetchData = async () => {
     const res = await fetch('js/stock.json');
     const data = await res.json()
-    // console.log(data)
     agregarTarjetas(data)
 }
 
@@ -57,7 +56,7 @@ const addCarrito = e => {
         icon: 'success',
         title: 'Agregado al carrito',
         showConfirmButton: false,
-        timer: 1500
+        timer: 750
     })
 }
 
@@ -127,10 +126,38 @@ const llenarTotal = () => {
         llenarCarrito()
     })
 
+    const botonCompra = document.querySelector('#comprar-carrito')
+    botonCompra.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Confirma la compra?',
+            text: `El costo total es de $ ${nPrecio}`,
+            icon: 'info',
+            input: 'email',
+            inputPlaceholder: 'Ingrese el mail para recibir su compra',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, comprar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                'Comprado!',
+                'Recibira una mail con la confirmación.',
+                'Completado'
+            )
+            carrito = {}
+            llenarCarrito()
+            }
+        })
+        
+    })
+
 }
 
 const btnAumentarDisminuir = e => {
-    // console.log(e.target.classList.contains('btn-info'))
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
